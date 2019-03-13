@@ -35,6 +35,19 @@ TodoModel.create(newTodo).then((res) => {
     this.setState({ newTodos });
   })
 }
+ //Provide function to update todo
+  //Will need to initiate a pre-filled form containing specific data
+  updateTodo = (todoId, todoBody) => {
+    function isUpdatedTodo(todo) {
+      return todo._id === todoId;
+    }
+    TodoModel.update(todoId, todoBody).then((res) => {
+      let todos = this.state.todos
+      todos.find(isUpdatedTodo).body = todoBody.body
+      todos.find(todo => isUpdatedTodo(todo)).body = res.data.body;
+      this.setState({todos: todos})
+    })
+  }
   //Provide function to delete a todo on successful response. 
   //After delete response is sent back from server,find corresponding entry without same _id
   //for todo in todos state array and remove it
@@ -51,8 +64,9 @@ render(){
       <div className="todosComponent">
         <CreateTodoForm createTodo={this.createTodo}/>
           <Todos 
-          todos={ this.state.todos}
-          deleteTodo={this.deleteTodo}/>
+          todos={ this.state.todos }
+          updateTodo={ this.updateTodo }
+          deleteTodo={ this.deleteTodo }/>
       </div>
     )
   }

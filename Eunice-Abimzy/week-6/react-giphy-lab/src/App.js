@@ -1,11 +1,17 @@
 // Developer TODO: Define App component defintion here
 import React, { Component } from 'react'
+import './App.css'
+import NavBar from './NavBar';
+import Header from './Header';
+import Search from './Search';
 
  class App extends Component {
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+          <NavBar />
+          <Header />
+          <Search />
       </div>
     )
   }

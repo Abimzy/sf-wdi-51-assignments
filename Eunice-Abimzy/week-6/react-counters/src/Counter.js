@@ -17,7 +17,7 @@ import React, { Component } from 'react';
     let count = this.state.counterValue + 1;
 
     this.setState({
-      count
+      count 
     })
   }
 
