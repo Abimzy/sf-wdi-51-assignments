@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Post</h1>
+<article class="message is-primary">
+    <div class="message-header">
+        <a href={{url_for('posts', id=post.id)}}>{{post.title}}</a>
+
+        <p>By: {{post.user}}</p>
+    </div>
+    <div class="message-body">
+        {{post.text}}
+    </div>
+    <a>r/{{post.sub}}</a>
+</article>
+{% endblock %}

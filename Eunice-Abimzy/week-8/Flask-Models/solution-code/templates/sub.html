@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Sub</h1>
+    <article class="message is-dark">
+        <div class="message-header">
+            <a>{{sub.name}}</a>
+        </div>
+        <div class="message-body">
+            {{sub.description}}
+        </div>
+    </article>
+
+    {% if posts %}
+        <div class="post-wrapper" style="margin-left: 20px">
+            {% include "/partial/post_list.html" %}
+        </div>
+    {% endif %}
+
+    <section>
+        <h2>Add a Post to this Sub</h2>
+        <form method="POST" action="" novalidate>
+            {{ form.hidden_tag() }}
+
+            <div class="field">
+            {{ form.title.label }}
+            {{ form.title(class_="input") }}
+            </div>
+            <div class="field">
+            {{ form.text.label }}
+            {{ form.text(class_="textarea") }}
+            </div>
+            <div class="field">
+            {{ form.user.label("Post By:") }}
+            {{ form.user(class_="input") }}
+            </div>
+
+            {{ form.submit(class_="button") }}
+        </form>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+[{
+        "user": "Dalton",
+        "title": "Wow this sub is so cool!",
+        "text": "I can't believe it.",
+        "sub": "MovieDetails",
+        "id": 1
+    }, {
+        "user": "JJ",
+        "title": "I dig it.",
+        "text": "110% is how I roll.",
+        "sub": "Me_IRL",
+        "id": 2
+    },
+    {
+        "user": "Jason",
+        "title": "YAAASSS",
+        "text": "KWEEEN",
+        "sub": "Baby Elephant Gifs",
+        "id": 3
+    },
+    {
+        "user": "Brock",
+        "title": "Wait a second.",
+        "text": "He is BEARly human.",
+        "sub": "BearsDoingHumanThings",
+        "id": 4
+    }
+]

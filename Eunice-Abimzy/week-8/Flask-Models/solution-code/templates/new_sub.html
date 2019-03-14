@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1>Welcome to Breddit</h1>
+  
+  <div class="columns">
+    <div class="column">
+      <h2>Add a Sub to Breddit</h2>
+      <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="field">
+          {{ form.name.label }}
+          {{ form.name(class_="input") }}
+        </div>
+        <div class="field">
+          {{ form.description.label }}
+          {{ form.description(class_="textarea") }}
+        </div>
+
+        {{ form.submit(class_="button") }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

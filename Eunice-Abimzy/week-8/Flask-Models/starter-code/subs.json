@@ -1,0 +1,21 @@
+[{
+        "name": "MovieDetails",
+        "description": "All the cool movie details you will ever need.",
+        "id": 1
+    },
+    {
+        "name": "Me_IRL",
+        "description": "You won't believe how accurate it is.",
+        "id": 2
+    },
+    {
+        "name": "Baby Elephant Gifs",
+        "description": "Name says it all.",
+        "id": 3
+    },
+    {
+        "name": "BearsDoingHumanThings",
+        "description": "What is a bear but a furry human?",
+        "id": 4
+    }
+]

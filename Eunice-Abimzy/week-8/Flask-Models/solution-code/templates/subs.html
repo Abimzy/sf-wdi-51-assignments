@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Subs</h1>
+{% for sub in subs %}
+<article class="message is-dark">
+    <div class="message-header">
+        <a href={{url_for('r', sub=sub.id)}}>{{sub.name}}</a>
+    </div>
+    <div class="message-body">
+        {{sub.description}}
+    </div>
+</article>
+{% endfor %}
+{% endblock %}
