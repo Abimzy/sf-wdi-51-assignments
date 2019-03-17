@@ -32,7 +32,7 @@ class Todo extends Component {
     this.setState({
       completed: !this.state.completed
     })
-    this.props.markComplete(this.props.todo._id, {completed: !this.state.completed})
+    this.props.markComplete(this.props.todo.id, {completed: !this.state.completed})
   }
 
 

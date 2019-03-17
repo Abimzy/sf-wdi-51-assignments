@@ -9,7 +9,7 @@ class Todos extends Component {
     let todos = this.props.todos.map( (todo) => {
       return (
         <Todo
-          key={todo._id}
+          key={todo.id}
           todo={todo}
           onDeleteTodo={this.props.onDeleteTodo}
           onUpdateTodo={this.props.onUpdateTodo} 
