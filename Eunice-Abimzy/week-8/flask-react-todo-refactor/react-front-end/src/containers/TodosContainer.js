@@ -22,9 +22,9 @@ class TodosContainer extends Component {
   fetchData = () => {
     TodoModel.all().then( (res) => {
       this.setState ({
-        todos: res.data.todos,
+        todos: res.data,
         todo: '',
-        todoCount:res.data.todos.filter(todo => todo.completed === false).length
+        todoCount:res.data.filter(todo => todo.completed === false).length
       })
     })
   }
@@ -32,7 +32,8 @@ class TodosContainer extends Component {
   createTodo = (todo) => {
     let newTodo = {
         body: todo,
-        completed: false
+        completed: false,
+        priority: 1
     }
     TodoModel.create(newTodo).then((res) => {
         let todos = this.state.todos
@@ -44,7 +45,7 @@ class TodosContainer extends Component {
 
   updateTodo = (todoBody, todoId) => {
     function isUpdatedTodo(todo) {
-        return todo._id === todoId;
+        return todo.id === todoId;
     }
     TodoModel.update(todoId, todoBody).then((res) => {
         let todos = this.state.todos
@@ -57,7 +58,7 @@ class TodosContainer extends Component {
   deleteTodo = (todo) => {
     TodoModel.delete(todo).then((res) => {
         let todos = this.state.todos.filter(function(todo) {
-          return todo._id !== res.data._id
+          return todo.id !== res.data.id
         });
         this.setState({todos})
     })
@@ -66,7 +67,7 @@ class TodosContainer extends Component {
   markComplete = (todoId, complete) => {
     console.log(complete)
     function isUpdatedTodo(todo) {
-      return todo._id === todoId;
+      return todo.id === todoId;
     } 
     let todos = this.state.todos;
     todos.find(isUpdatedTodo).complete = complete
@@ -120,7 +121,6 @@ class TodosContainer extends Component {
           />
         <TodoDashboard 
           todoCount={this.state.todoCount} />
-
       </div>
     )
   }
