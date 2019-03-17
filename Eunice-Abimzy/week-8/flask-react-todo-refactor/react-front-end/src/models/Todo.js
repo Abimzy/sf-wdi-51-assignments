@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = `http://localhost:8000`
+const url = `http://localhost:8000/todos`
 
 class TodoModel {
   static all = () =>{
@@ -15,7 +15,7 @@ class TodoModel {
 
   static delete = (todo) => {
     console.log(`deleting ${todo.body}`)
-    let request = axios.delete(`${url}/${todo._id}`)
+    let request = axios.delete(`${url}/${todo.id}`)
     return request
   }
 
