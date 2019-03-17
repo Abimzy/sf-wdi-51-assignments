@@ -24,11 +24,8 @@ marshmallow = Marshmallow(app)
 DEBUG = True 
 PORT = 8000
 
-# @app.route('/todo', methods=['POST']
-
-
-@app.route('/todo', methods=['GET', 'POST'])
-@app.route('/todo/<todoid>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/todos', methods=['GET', 'POST'])
+@app.route('/todos/<todoid>', methods=['GET', 'PUT', 'DELETE'])
 def get_or_create_or_delete_todo(todoid=None):
     from models import Todo
     if todoid == None and request.method =='GET':
@@ -43,6 +40,13 @@ def get_or_create_or_delete_todo(todoid=None):
     else:
         return Todo.get_todo(todoid)
 
+@app.route('/todos/<todoid>', methods=['PUT'])
+def update(todoid):
+    from models import Todo
+    body = request.json['body']
+    priority = request.json['priority']
+    completed = request.json['completed']
+    return Todo.update_todo(todoid, body, priority, completed)
 
 
 
