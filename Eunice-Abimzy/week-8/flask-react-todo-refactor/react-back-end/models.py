@@ -35,7 +35,7 @@ class Todo(db.Model):
     @classmethod
     def get_todos(cls):
         todos = Todo.query.all()
-        return todo_schema.jsonify(todos)
+        return todos_schema.jsonify(todos)
     
     @classmethod
     def update_todo(cls, todoid, body, priority, completed):
