@@ -19,9 +19,9 @@ class TodoForm extends Component {
     event.preventDefault()
     this.props.toggleBodyForm()
     var todo = this.state.todo
+    var priority = this.state.priority
     console.log({body: todo})
-    this.props.onUpdateTodo({body: todo}, this.props.todo._id)
-  
+    this.props.onUpdateTodo({body: todo, priority: priority, completed: this.state.completed}, this.props.todo.id)
   }
 
   componentDidMount(){
